@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Official Rick Roll of LCAI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>Official Rick Roll of LCAI</h1>
+  </header>
+
+  <main class="container">
+    <div class="counter">
+      <div>
+        <span id="rolledCount">--</span> people rolled
+      </div>
+    </div>
+
+    <div class="card">
+      <p>Get Rolled</p>
+      <button class="btn btn-primary" id="playBtn">Get Rolled</button>
+    </div>
+
+    <div class="media-wrapper hidden" id="ytWrapper">
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </main>
+
+  <script>
+    const contractAddress = "0x3116771fde5F2c4dD56bF3AD6a2374A0D0490194";
+    const contractABI = [
+      "function rolledCount() view returns (uint256)"
+    ];
+
+    async function fetchRolledCount() {
+      try {
+        if (!window.ethereum) throw new Error("Wallet not detected");
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const contract = new ethers.Contract(contractAddress, contractABI, provider);
+        const rolled = await contract.rolledCount();
+        document.getElementById("rolledCount").innerText = rolled.toString();
+      } catch (err) {
+        console.error("Error fetching rolled count:", err);
+      }
+    }
+
+    document.getElementById("playBtn").addEventListener("click", () => {
+      document.getElementById("ytWrapper").classList.remove("hidden");
+      document.getElementById("playBtn").disabled = true;
+    });
+
+    window.addEventListener("load", fetchRolledCount);
+  </script>
+</body>
+</html>
