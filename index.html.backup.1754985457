@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rick Roll dApp</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <header class="rickroll-header">
+      <h1>Original Rickroll of LCAI</h1>
+      <p class="producer-credit">Presented by Llihkor Productions</p>
+    </header>
+
+    <div class="rickroll-gif">
+      <img src="https://media.tenor.com/0Z3kYbYxKZsAAAAC/rickroll-rick-astley.gif" alt="Rick Roll" />
+    </div>
+
+    <div id="roll-count" class="counter">Loading rolls...</div>
+  </main>
+
+  <footer class="powered-by">
+    <p>Powered by <strong>llihkor</strong></p>
+  </footer>
+<div style="color:#5B4BFF;font-family:sans-serif;font-size:24px;margin-top:20px;">
+  Rick Rolls: <span id="roll-count">Loading...</span>
+</div>
+<img id="rick-gif" src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Rick Roll" style="width:300px;cursor:pointer;margin-top:10px;">
+<audio id="rick-audio" preload="auto">
+  <source src="assets/rickroll-snippet.mp3" type="audio/mpeg">
+</audio>
+</body>
+</html>

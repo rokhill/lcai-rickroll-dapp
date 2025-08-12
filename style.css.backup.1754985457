@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'LightChain Sans';
+  src: url('assets/fonts/LightChainSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'LightChain Sans';
+  src: url('assets/fonts/LightChainSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+:root {
+  --lcai-primary:   #5B4BFF;
+  --lcai-light:     #CCCEEF;
+  --lcai-dark:      #14152C;
+  --lcai-gradient:  linear-gradient(90deg, #5B4BFF, #EE11FB);
+  --font-sans:      'LightChain Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--lcai-light);
+  color: var(--lcai-dark);
+  line-height: 1.6;
+}
+
+.hero {
+  background: var(--lcai-gradient);
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.container {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+.counter div {
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(20,21,44,0.05);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--lcai-light);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(20,21,44,0.05);
+}
+
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--lcai-primary);
+  color: #fff;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.media-wrapper {
+  margin-top: 2rem;
+}
+.media-wrapper iframe {
+  width: 100%;
+  border-radius: 8px;
+}
+.hidden { display: none; }

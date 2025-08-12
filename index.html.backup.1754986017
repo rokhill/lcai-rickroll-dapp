@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LightChain Rick Roll</title>
+  <link rel="preload" href="assets/fonts/LightChainSans-Regular.woff2?v=1" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/LightChainSans-Bold.woff2?v=1" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <h1 class="title">
+        <span class="lc">LightChain</span> Rick Roll
+      </h1>
+      <p class="subtitle">Never gonna give up the chain. Live rolls, instant vibes.</p>
+    </header>
+    <section class="panel">
+      <div class="status">
+        <span id="netStatus" class="pill">Disconnected</span>
+        <button id="connectBtn" class="btn ghost">Connect Wallet</button>
+      </div>
+      <div class="counter">
+        <div class="label">Total Rolls</div>
+        <div id="countValue" class="value skeleton">—</div>
+      </div>
+      <div class="actions">
+        <button id="rollBtn" class="btn primary" disabled>
+          <span class="btn-label">Roll It</span>
+          <span class="btn-spinner" hidden></span>
+        </button>
+        <div class="hint">Increments the on-chain counter at <code class="addr">0x3116…0194</code></div>
+      </div>
+      <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+    </section>
+  </main>
+  <audio id="rickAudio" preload="auto">
+    <source src="assets/rickroll-snippet.mp3?v=1" type="audio/mpeg" />
+  </audio>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.min.js" crossorigin="anonymous"></script>
+  <script src="main.js?v=1"></script>
+</body>
+</html>
