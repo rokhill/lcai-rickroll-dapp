@@ -2,66 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Official Rick Roll of LCAI</title>
-
-  <!-- Open Graph metadata for Discord previews -->
-  <meta property="og:title" content="You've Been Rick Rolled by LightChain.ai" />
-  <meta property="og:description" content="This is the official Rick Roll dApp of LightChain.ai. Join the chain, get rolled." />
-  <meta property="og:image" content="https://rokhill.github.io/lcai-rickroll-dapp/assets/preview.png" />
-  <meta property="og:url" content="https://rokhill.github.io/lcai-rickroll-dapp/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <title>Rick Roll dApp</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
 </head>
 <body>
-  <header class="hero">
-    <h1>Official Rick Roll of LCAI</h1>
-    <p>You've been rolled. Welcome to the chain.</p>
-  </header>
-
   <main>
-    <div class="counter">
-      <p>You've been rolled <span id="counter">...</span> times.</p>
+    <header class="rickroll-header">
+      <h1>Original Rickroll of LCAI</h1>
+      <p class="producer-credit">Presented by Llihkor Productions</p>
+    </header>
+
+    <div class="rickroll-gif">
+      <img src="https://media.tenor.com/0Z3kYbYxKZsAAAAC/rickroll-rick-astley.gif" alt="Rick Roll" />
     </div>
+
+    <div id="roll-count" class="counter">Loading rolls...</div>
   </main>
 
-  <footer>
-    <p>Powered by LightChain.ai • RickRoll dApp by rokhill</p>
+  <footer class="powered-by">
+    <p>Powered by <strong>llihkor</strong></p>
   </footer>
-
-  <script>
-    const provider = new ethers.providers.JsonRpcProvider("https://rpc.lightchain.ai");
-
-    const abi = [
-      {
-        "inputs": [],
-        "name": "getRollCount",
-        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-        "stateMutability": "view",
-        "type": "function"
-      }
-    ];
-
-    const contract = new ethers.Contract(
-      "0x3116771fde5F2c4dD56bF3AD6a2374A0D0490194",
-      abi,
-      provider
-    );
-
-    async function updateCounter() {
-      try {
-        const count = await contract.getRollCount();
-        document.getElementById("counter").textContent = count.toString();
-      } catch (err) {
-        console.error("Failed to fetch counter:", err);
-        document.getElementById("counter").textContent = "N/A";
-      }
-    }
-
-    updateCounter();
-    setInterval(updateCounter, 5000);
-  </script>
+<div style="color:#5B4BFF;font-family:sans-serif;font-size:24px;margin-top:20px;">
+  Rick Rolls: <span id="roll-count">Loading...</span>
+</div>
+<img id="rick-gif" src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Rick Roll" style="width:300px;cursor:pointer;margin-top:10px;">
+<audio id="rick-audio" preload="auto">
+  <source src="assets/rickroll-snippet.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
