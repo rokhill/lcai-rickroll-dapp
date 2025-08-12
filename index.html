@@ -24,15 +24,46 @@
   </header>
 
   <main>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
-        title="Rick Roll" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="counter">
+      <p>You've been rolled <span id="counter">...</span> times.</p>
     </div>
   </main>
 
   <footer>
     <p>Powered by LightChain.ai • RickRoll dApp by rokhill</p>
   </footer>
+
+  <script>
+    const provider = new ethers.providers.JsonRpcProvider("https://rpc.lightchain.ai");
+
+    const abi = [
+      {
+        "inputs": [],
+        "name": "getRollCount",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ];
+
+    const contract = new ethers.Contract(
+      "0x3116771fde5F2c4dD56bF3AD6a2374A0D0490194",
+      abi,
+      provider
+    );
+
+    async function updateCounter() {
+      try {
+        const count = await contract.getRollCount();
+        document.getElementById("counter").textContent = count.toString();
+      } catch (err) {
+        console.error("Failed to fetch counter:", err);
+        document.getElementById("counter").textContent = "N/A";
+      }
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 5000);
+  </script>
 </body>
 </html>
-
