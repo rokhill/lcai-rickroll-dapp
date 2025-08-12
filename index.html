@@ -1,33 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Rick Roll dApp</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LightChain Rick Roll</title>
+  <link rel="preload" href="assets/fonts/LightChainSans-Regular.woff2?v=1" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/LightChainSans-Bold.woff2?v=1" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=1" />
 </head>
 <body>
-  <main>
-    <header class="rickroll-header">
-      <h1>Original Rickroll of LCAI</h1>
-      <p class="producer-credit">Presented by Llihkor Productions</p>
+  <main class="wrap">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <h1 class="title">
+        <span class="lc">LightChain</span> Rick Roll
+      </h1>
+      <p class="subtitle">Never gonna give up the chain. Live rolls, instant vibes.</p>
     </header>
-
-    <div class="rickroll-gif">
-      <img src="https://media.tenor.com/0Z3kYbYxKZsAAAAC/rickroll-rick-astley.gif" alt="Rick Roll" />
-    </div>
-
-    <div id="roll-count" class="counter">Loading rolls...</div>
+    <section class="roll-box">
+      <div id="roll-count">Loading rolls...</div>
+      <button id="roll-button">Roll Again</button>
+    </section>
+    <section class="rickroll">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </section>
   </main>
-
-  <footer class="powered-by">
-    <p>Powered by <strong>llihkor</strong></p>
-  </footer>
-<div style="color:#5B4BFF;font-family:sans-serif;font-size:24px;margin-top:20px;">
-  Rick Rolls: <span id="roll-count">Loading...</span>
-</div>
-<img id="rick-gif" src="https://media.giphy.com/media/Vuw9m5wXviFIQ/giphy.gif" alt="Rick Roll" style="width:300px;cursor:pointer;margin-top:10px;">
-<audio id="rick-audio" preload="auto">
-  <source src="assets/rickroll-snippet.mp3" type="audio/mpeg">
-</audio>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.min.js" crossorigin></script>
+  <script src="main.js?v=1"></script>
 </body>
 </html>
